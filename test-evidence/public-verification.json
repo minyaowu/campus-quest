@@ -1,0 +1,21 @@
+{
+  "url": "https://minyaowu.github.io/campus-quest/",
+  "task": "一句話複習",
+  "strictCandidates": "6",
+  "filters": "5 分鐘／0 元／室內",
+  "statusBeforeReload": "進行中",
+  "timerBeforeReload": "04:40",
+  "statusAfterRunningReload": "進行中",
+  "timerAfterRunningReload": "04:34",
+  "pausedBeforeReload": "04:34",
+  "pausedAfterReload": "04:34",
+  "mobile": {
+    "scrollWidth": 360,
+    "width": 360
+  },
+  "consoleErrors": [],
+  "completedCountAfterCancel": "0",
+  "finalStatus": "等待出發",
+  "verifiedAt": "2026-10-14T04:29:47.780Z",
+  "initialWebsiteCommit": "cc518d8fe15fd087e9eef0c185785edcc9cc57de"
+}

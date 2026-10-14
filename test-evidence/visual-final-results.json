@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "Skip link remains keyboard accessible, hidden when unfocused",
+    "Radio focus visibly outlined",
+    "375px active/paused/completed layout; regenerated six genuine screenshots",
+    "Mobile draw scrolls task title and accept button fully into viewport",
+    "No page errors after visual fixes"
+  ],
+  "status": "PASS",
+  "testedAt": "2026-10-13T15:34:06.910Z"
+}

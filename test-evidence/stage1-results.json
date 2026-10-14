@@ -1,0 +1,9 @@
+{
+  "stage": 1,
+  "tasks": 40,
+  "combinations": 36,
+  "defaultCandidates": 26,
+  "strictCandidates": 6,
+  "noRepeatDraws": 500,
+  "status": "PASS"
+}

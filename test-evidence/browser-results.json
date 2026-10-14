@@ -1,0 +1,270 @@
+{
+  "testedAt": "2026-10-13T15:25:41.156Z",
+  "browser": "installed Google Chrome / Playwright",
+  "mode": "file + attempted HTTP subpath",
+  "results": [
+    {
+      "name": "T01 F01-F02 default draw",
+      "status": "PASS",
+      "evidence": {
+        "name": "窗邊觀察家",
+        "minutes": 5,
+        "cost": 0,
+        "candidates": 26
+      }
+    },
+    {
+      "name": "T02 F01 strict 5/0/indoor and 12 redraws",
+      "status": "PASS",
+      "evidence": {
+        "draws": 12,
+        "candidates": 6,
+        "noAdjacentRepeat": true
+      }
+    },
+    {
+      "name": "T03 F03 singleton UI using isolated task fixture",
+      "status": "PASS",
+      "evidence": {
+        "fixture": "only cq01; discarded on reload"
+      }
+    },
+    {
+      "name": "T04 F03 zero candidates UI using isolated task fixture",
+      "status": "PASS",
+      "evidence": {
+        "fixture": "empty task array; discarded on reload"
+      }
+    },
+    {
+      "name": "T05 F02 animation guards 20 rapid clicks",
+      "status": "PASS",
+      "evidence": {
+        "elapsedAfterClickMs": 1739,
+        "rapidClicks": 20,
+        "stableResult": "桌面微整理"
+      }
+    },
+    {
+      "name": "T06 F03 changing filters clears unaccepted result",
+      "status": "PASS",
+      "evidence": {
+        "oldResultCleared": true
+      }
+    },
+    {
+      "name": "T07 F04 accept/start/pause/resume/cancel state flow",
+      "status": "PASS",
+      "evidence": {
+        "taskMinutes": 15,
+        "availableMinutes": 60,
+        "cancelAddedRecords": 0
+      }
+    },
+    {
+      "name": "T08 F04 running and paused reload restore",
+      "status": "PASS",
+      "evidence": {
+        "runningDeadlinePreserved": true,
+        "pausedTimer": "04:59"
+      }
+    },
+    {
+      "name": "T09 F04 zero waits for manual confirmation",
+      "status": "PASS",
+      "evidence": {
+        "fixture": "900ms saved running timer",
+        "automaticRecords": 0
+      }
+    },
+    {
+      "name": "T10 F04 repeat completion never duplicates",
+      "status": "PASS",
+      "evidence": {
+        "completionClicks": 20,
+        "records": 1
+      }
+    },
+    {
+      "name": "T11 F05 history persistence/cancel-clear/clear protects active",
+      "status": "PASS",
+      "evidence": {
+        "cancelClearPreserved": true,
+        "confirmedClearKeptActive": true
+      }
+    },
+    {
+      "name": "T12 F06 corrupted JSON recovers",
+      "status": "PASS",
+      "evidence": {
+        "warning": "儲存資料格式損毀，已恢復預設條件。可以繼續冒險，舊資料可能無法復原。"
+      }
+    },
+    {
+      "name": "T13 F06 incomplete fields and safe stored text",
+      "status": "PASS",
+      "evidence": {
+        "validRecordRetained": true,
+        "htmlInjected": false,
+        "canonicalName": "一句話複習"
+      }
+    },
+    {
+      "name": "T14 F06 storage read blocked still operational",
+      "status": "PASS",
+      "evidence": {
+        "storageException": "SecurityError",
+        "inMemoryCompletion": 1
+      }
+    },
+    {
+      "name": "T15 F06 storage write failure still operational",
+      "status": "PASS",
+      "evidence": {
+        "storageException": "QuotaExceededError",
+        "timerOperational": true
+      }
+    },
+    {
+      "name": "T16 keyboard radios/draw/confirm/Escape",
+      "status": "PASS",
+      "evidence": {
+        "sequence": "Tab → radio arrows → Enter draw/accept/start → Tab complete → Escape"
+      }
+    },
+    {
+      "name": "T17 reduced motion avoids animations and draws successfully",
+      "status": "PASS",
+      "evidence": {
+        "animationName": "none",
+        "resultVisible": true
+      }
+    },
+    {
+      "name": "T18 desktop/mobile overflow all major states",
+      "status": "PASS",
+      "evidence": [
+        {
+          "width": 1440,
+          "stage": "empty",
+          "scroll": 1440
+        },
+        {
+          "width": 1440,
+          "stage": "result",
+          "scroll": 1440
+        },
+        {
+          "width": 1440,
+          "stage": "ready",
+          "scroll": 1440
+        },
+        {
+          "width": 1440,
+          "stage": "running",
+          "scroll": 1440
+        },
+        {
+          "width": 1440,
+          "stage": "paused",
+          "scroll": 1440
+        },
+        {
+          "width": 1440,
+          "stage": "confirm",
+          "scroll": 1440
+        },
+        {
+          "width": 1440,
+          "stage": "complete",
+          "scroll": 1440
+        },
+        {
+          "width": 375,
+          "stage": "empty",
+          "scroll": 375
+        },
+        {
+          "width": 375,
+          "stage": "result",
+          "scroll": 375
+        },
+        {
+          "width": 375,
+          "stage": "ready",
+          "scroll": 375
+        },
+        {
+          "width": 375,
+          "stage": "running",
+          "scroll": 375
+        },
+        {
+          "width": 375,
+          "stage": "paused",
+          "scroll": 375
+        },
+        {
+          "width": 375,
+          "stage": "confirm",
+          "scroll": 375
+        },
+        {
+          "width": 375,
+          "stage": "complete",
+          "scroll": 375
+        }
+      ]
+    },
+    {
+      "name": "T19 F05 newest-first and expand all records",
+      "status": "PASS",
+      "evidence": {
+        "fixtureRecords": 12,
+        "initialShown": 10,
+        "expandedShown": 12,
+        "newestFirst": true
+      }
+    },
+    {
+      "name": "T20 F02-F06 no external resources or unsafe HTML rendering",
+      "status": "PASS",
+      "evidence": {
+        "fileModeRequests": 27,
+        "externalNetworkRequests": 0
+      }
+    },
+    {
+      "name": "T21 HTTP project subpath and main flow",
+      "status": "PASS",
+      "evidence": {
+        "url": "http://127.0.0.1:51891/campus-quest/",
+        "requests": 1,
+        "status": 200
+      }
+    },
+    {
+      "name": "T22 real screenshots from executed site",
+      "status": "PASS",
+      "evidence": {
+        "files": 5,
+        "task": "cq13 actual catalog task",
+        "historyScreenshot": "manual test completion; demonstration only",
+        "mobileFocus": {
+          "active": "BODY",
+          "skipFocused": false
+        }
+      }
+    },
+    {
+      "name": "T23 JavaScript/console errors",
+      "status": "PASS",
+      "evidence": {
+        "pageErrors": [],
+        "consoleErrors": []
+      }
+    }
+  ],
+  "errors": [],
+  "consoleErrors": []
+}
