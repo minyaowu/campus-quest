@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#174c3c">
+<meta name="description" content="依照空堂時間、預算與地點偏好，抽出可立即執行的校園小任務。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23174c3c'/%3E%3Cpath d='M42 20 35 35 20 42 27 27Z' fill='%23f1a55d'/%3E%3C/svg%3E">
+<title>空堂冒險 Campus Quest</title>
+<style>
+:root{--paper:#f7f5ed;--white:#fffef9;--green:#174c3c;--ink:#233e34;--muted:#5d6d61;--line:#dce2d6;--orange:#e58b47;--pale:#eaf0e5;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Microsoft JhengHei","PingFang TC",system-ui,sans-serif;font-size:15px;line-height:1.65}button,input{font:inherit}button,a,input{touch-action:manipulation}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.48}button:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid #be5b22;outline-offset:4px}button,a{-webkit-tap-highlight-color:transparent}a{color:var(--green)}[hidden]{display:none!important}.container{max-width:1160px;margin:auto;padding:0 28px}.topbar{display:flex;align-items:center;justify-content:space-between;min-height:82px;border-bottom:1px solid var(--line);gap:16px}.brand{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:800;letter-spacing:.06em}.brand svg{width:35px;height:35px}.topbar a{text-decoration:none;font-size:14px;font-weight:700}.topbar a:hover{text-decoration:underline}.hero{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:34px 0 28px}.eyebrow{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--muted)}.dot{width:7px;height:7px;display:inline-block;background:var(--orange);border-radius:50%}h1{font-size:clamp(36px,4.2vw,55px);line-height:1.15;letter-spacing:.03em;margin:15px 0 14px;font-weight:900}h1 span{color:var(--orange)}.hero p{margin:0;color:var(--muted);font-size:16px}.hero-art{width:300px;height:156px;flex:none}.workflow{display:flex;align-items:center;gap:13px;font-size:12px;color:var(--muted);margin-top:22px}.workflow b{background:var(--pale);color:var(--green);border-radius:50%;width:21px;height:21px;display:inline-grid;place-items:center;margin-right:4px}.workflow .line{height:1px;width:24px;background:#bfcbbc}.main-grid{display:grid;grid-template-columns:350px minmax(0,1fr);gap:24px;align-items:stretch}.panel{border:1px solid var(--line);background:var(--white);border-radius:var(--radius)}.filter-panel{padding:25px 26px}.section-kicker{font-size:11px;letter-spacing:.14em;font-weight:800;color:var(--muted)}h2{font-size:21px;line-height:1.4;margin:5px 0 6px;font-weight:800}.section-help{color:var(--muted);font-size:13px;margin:0 0 22px}fieldset{border:0;padding:0;margin:0 0 20px;min-width:0}legend{font-weight:750;font-size:14px;margin-bottom:9px;padding:0}.legend-note{font-size:11px;font-weight:400;color:var(--muted);margin-left:6px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.choices.time{grid-template-columns:repeat(4,minmax(0,1fr))}.choice{position:relative;cursor:pointer}.choice input{position:absolute;opacity:0;width:1px;height:1px}.choice span{display:block;text-align:center;border:1px solid var(--line);background:#fafbf5;padding:10px 1px;border-radius:10px;font-size:13px;transition:background .15s,border-color .15s}.choice input:checked+span{background:var(--green);color:white;border-color:var(--green);font-weight:700}.choice:hover span{border-color:var(--green)}.choice:has(input:disabled){cursor:not-allowed;opacity:.65}.candidate-info{display:flex;align-items:center;gap:9px;background:var(--pale);padding:10px 12px;border-radius:10px;margin:6px 0 14px;font-size:12px;color:var(--green)}.candidate-info svg{width:18px;height:18px;flex:none}.candidate-info strong{font-size:17px;margin:0 3px}.btn{border:1px solid transparent;border-radius:11px;padding:12px 19px;font-weight:750;line-height:1.5;display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:47px;transition:background .15s,transform .15s}.btn:hover:not(:disabled){transform:translateY(-1px)}.btn-primary{background:var(--green);color:white}.btn-primary:hover:not(:disabled){background:#23624d}.btn-secondary{background:#f4f6ee;color:var(--green);border-color:var(--line)}.btn-secondary:hover:not(:disabled){background:#e8eddf}.btn-orange{background:#f4a361;color:#3e2717}.btn-orange:hover:not(:disabled){background:#ec9450}.btn svg{width:20px;height:20px}.draw-btn{width:100%}.small-note{font-size:11px;color:var(--muted);margin:10px 0 0}.lock-note{font-size:12px;color:#865322;background:#fff1df;border-radius:9px;padding:10px;margin:12px 0 0}.quest-panel{padding:24px 29px;position:relative;overflow:hidden;background:linear-gradient(150deg,#fffef9 55%,#f0f3e8);min-height:458px;display:flex;flex-direction:column}.quest-topline{display:flex;align-items:center;justify-content:space-between;gap:12px}.status-pill{font-size:11px;font-weight:750;background:var(--pale);color:var(--green);border:1px solid #d3dfce;padding:4px 10px;border-radius:30px}.status-pill.running{background:#fae5cb;border-color:#f2cc9e;color:#7e461d}.quest-mark{font-size:11px;letter-spacing:.12em;color:var(--muted)}.empty-quest{text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1;padding:27px 8px}.compass{width:100px;height:100px;margin:0 0 18px}.empty-quest h2{font-size:22px;margin:0 0 9px}.empty-quest p{font-size:14px;color:var(--muted);max-width:370px;margin:0}.hint-tag{font-size:11px;margin-top:23px;padding:5px 13px;background:#f1eee1;border-radius:20px;color:#746b51}.quest-result{display:flex;flex-direction:column;flex:1;padding-top:27px}.category{font-size:12px;font-weight:700;letter-spacing:.08em;color:#956333;margin-bottom:9px}.quest-title{font-size:28px;line-height:1.4;margin:0 0 14px;letter-spacing:.02em}.quest-description{font-size:15px;line-height:1.9;margin:0 0 21px;color:#4e6254;flex:1}.metadata{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:20px}.meta-chip{display:flex;align-items:center;gap:6px;background:#edf1e6;padding:6px 12px;border-radius:8px;font-size:12px;color:var(--green)}.meta-chip svg{width:15px;height:15px}.result-actions{display:flex;gap:10px}.result-actions .btn-primary{flex:1}.card-foot{font-size:11px;color:var(--muted);margin:13px 0 0}.is-drawing .compass{animation:draw-flip .8s ease-in-out}.is-drawing{animation:card-glow .8s ease-in-out}@keyframes draw-flip{0%{transform:rotateY(0) rotate(-8deg)}50%{transform:rotateY(180deg) rotate(8deg)}100%{transform:rotateY(360deg) rotate(-8deg)}}@keyframes card-glow{50%{background:#e7eddc}}.active-panel{display:flex;flex-direction:column;flex:1;padding-top:22px}.active-panel .quest-title{font-size:23px}.active-panel .quest-description{font-size:13px;margin-bottom:13px;flex:none}.active-panel .metadata{margin-bottom:12px}.timer-area{background:var(--green);color:white;border-radius:16px;padding:15px 20px;text-align:center;margin-bottom:16px}.timer-caption{font-size:11px;color:#ccdbce}.timer{font-size:44px;line-height:1.3;letter-spacing:.06em;font-weight:800;font-variant-numeric:tabular-nums}.timer-note{font-size:12px;color:#e0e9dc;margin:3px 0 0}.progress-track{height:4px;border-radius:10px;background:#37624e;overflow:hidden;margin-top:12px}.progress-bar{height:100%;width:0;background:#efa467}.timer-actions{display:flex;gap:9px;flex-wrap:wrap}.timer-actions .btn{flex:1;font-size:13px;padding:11px 12px}.cancel-link{align-self:center;border:0;background:transparent;color:#687365;font-size:12px;text-decoration:underline;min-height:40px;margin-top:5px;padding:7px 16px}.history-section{margin:27px 0 30px;padding:24px 28px}.history-heading{display:flex;justify-content:space-between;gap:16px;align-items:center}.history-title{display:flex;align-items:center;gap:12px}.history-title h2{margin:0}.count-badge{padding:3px 10px;background:var(--pale);border-radius:30px;color:var(--green);font-size:12px;white-space:nowrap}.text-btn{border:0;background:none;color:var(--muted);font-size:12px;min-height:40px;padding:6px 0;text-decoration:underline}.history-empty{display:flex;align-items:center;gap:15px;border:1px dashed #d2dacb;border-radius:13px;padding:20px;margin-top:17px;background:#fcfcf5}.history-icon{width:41px;height:41px;display:grid;place-items:center;border-radius:12px;background:#edf1e5;flex:none}.history-icon svg{width:22px;height:22px}.history-empty p{margin:0;color:var(--muted);font-size:12px}.history-empty strong{font-size:14px;display:block;color:var(--ink);margin-bottom:2px}.history-list{list-style:none;padding:0;margin:14px 0 0}.history-item{padding:14px 0;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.history-item strong{font-size:14px;display:block;overflow-wrap:anywhere}.history-meta{font-size:11px;color:var(--muted);margin-top:3px}.history-item time{font-size:11px;color:var(--muted);text-align:right;flex:none}.history-complete{color:var(--green);font-size:11px;font-weight:700;margin-right:7px}.site-footer{border-top:1px solid var(--line);padding:19px 0 25px;display:flex;justify-content:space-between;gap:25px;color:var(--muted);font-size:11px}.site-footer p{margin:0;max-width:760px}.footer-tag{white-space:nowrap;letter-spacing:.05em}.notice{padding:12px 17px;border:1px solid #e5bd8c;background:#fff0dc;color:#7a471d;border-radius:12px;font-size:13px;margin-bottom:18px}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:20;background:var(--green);color:white;border-radius:12px;padding:13px 22px;max-width:calc(100% - 32px);box-shadow:0 8px 30px #123b3320;font-size:14px;pointer-events:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}dialog{border:1px solid var(--line);border-radius:20px;padding:27px;max-width:420px;width:calc(100% - 36px);color:var(--ink);background:var(--white);box-shadow:0 20px 70px #10291c33}dialog::backdrop{background:#132c2366}dialog h2{margin:0 0 12px}dialog p{font-size:14px;color:var(--muted);margin:0 0 23px}.dialog-actions{display:flex;gap:10px}.dialog-actions .btn{flex:1}.skip{position:fixed;top:8px;left:8px;transform:translateY(-150%);z-index:50;background:white;padding:10px}.skip:focus{transform:none}
+@media(max-width:760px){.container{padding:0 20px}.topbar{min-height:66px}.brand{font-size:16px}.topbar a{font-size:12px}.hero{padding:27px 0 24px;gap:0}.hero-art{width:145px;height:120px;position:absolute;right:17px;top:86px;opacity:.3;z-index:-1}.hero p{font-size:14px;max-width:285px}.hero .eyebrow{font-size:10px}h1{font-size:39px;margin:14px 0}.workflow{gap:6px;font-size:11px;margin-top:18px}.workflow .line{width:15px}.main-grid{grid-template-columns:minmax(0,1fr);gap:17px}.filter-panel{padding:21px}.section-help{margin-bottom:18px}fieldset{margin-bottom:17px}.quest-panel{padding:22px;min-height:390px}.quest-title{font-size:24px}.quest-description{font-size:14px}.quest-result{padding-top:23px}.history-section{padding:20px;margin:20px 0}.history-heading{gap:8px}.history-title{gap:8px}.history-title h2{font-size:18px}.count-badge{font-size:11px;padding:3px 8px}.history-empty{padding:15px;gap:12px}.history-item{align-items:flex-start;gap:12px}.history-item time{max-width:98px}.site-footer{flex-direction:column;gap:9px}.timer-actions .btn{min-width:110px}.timer{font-size:42px}.quest-mark{letter-spacing:.04em}.metadata{gap:6px}.meta-chip{padding:5px 9px}.result-actions .btn{padding:11px 13px}.toast{bottom:16px;width:max-content;text-align:center}}
+h1 span{color:#bc602a}.choice span{min-height:44px}.skip{clip-path:inset(50%);opacity:0;pointer-events:none}.skip:focus{clip-path:none;opacity:1;pointer-events:auto}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#filters-title">跳到冒險條件</a>
+<div class="container">
+<header class="topbar">
+  <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#174c3c"/><path d="M28 12 23 23 12 28 17 17Z" fill="#efa467"/><circle cx="20" cy="20" r="2" fill="#fffef9"/></svg>空堂冒險</div>
+  <a href="#history-section">我的冒險紀錄 ↗</a>
+</header>
+<main>
+<section class="hero" aria-labelledby="page-title">
+  <div><div class="eyebrow"><span class="dot"></span>給課與課之間的你</div><h1 id="page-title">空堂<span>冒險</span></h1><p>把課與課之間的空白，變成一場小冒險。</p><div class="workflow" aria-label="操作流程"><span><b>1</b>設定條件</span><i class="line"></i><span><b>2</b>抽個任務</span><i class="line"></i><span><b>3</b>出發，完成！</span></div></div>
+  <svg class="hero-art" viewBox="0 0 310 170" aria-hidden="true"><ellipse cx="163" cy="149" rx="128" ry="12" fill="#e5eadb"/><path d="M30 144C89 128 86 95 133 108S188 142 277 123" fill="none" stroke="#d9dfcc" stroke-width="3" stroke-dasharray="5 6"/><g transform="translate(75 14) rotate(-9 70 63)"><rect x="2" y="7" width="138" height="119" rx="13" fill="#d5ddc9"/><rect width="138" height="119" rx="13" fill="#fffef9" stroke="#c6d2bb"/><rect x="12" y="12" width="114" height="65" rx="7" fill="#e8efde"/><path d="M18 68 44 36 62 54 78 32 112 67" fill="none" stroke="#82996e" stroke-width="2"/><path d="M19 68H119" stroke="#82996e" stroke-width="2"/><circle cx="103" cy="30" r="9" fill="#f3b572"/><path d="M16 91H84M16 102H64" stroke="#b8c8ac" stroke-width="4" stroke-linecap="round"/><circle cx="110" cy="96" r="11" fill="#174c3c"/><path d="m105 96 4 4 6-8" fill="none" stroke="#fffef9" stroke-width="2"/></g><g transform="translate(199 58) rotate(12)"><circle cx="35" cy="35" r="36" fill="#f3bb7e"/><circle cx="35" cy="35" r="27" fill="#fff6e7" stroke="#ac713e"/><path d="m48 20-7 22-22 7 9-21Z" fill="#174c3c"/><path d="m35 35 13-15-7 22Z" fill="#e38d49"/><circle cx="35" cy="35" r="3" fill="#fffef9"/></g><path d="M50 111v29M35 121l15-25 15 25Z" fill="#799569"/><path d="M267 95v45M248 114l19-34 19 34Z" fill="#466e50"/><path d="m50 30 2 6 6 2-6 2-2 6-2-6-6-2 6-2Zm224 1 2 6 6 2-6 2-2 6-2-6-6-2 6-2Z" fill="#dc9656"/></svg>
+</section>
+<div id="storage-notice" class="notice" role="status" hidden></div>
+<div class="main-grid">
+<section class="panel filter-panel" aria-labelledby="filters-title">
+  <div class="section-kicker">01 / 準備出發</div><h2 id="filters-title" tabindex="-1">你的空堂條件</h2><p class="section-help">留一點時間，給今天的自己。</p>
+  <form id="filter-form">
+  <fieldset id="time-field"><legend>我有多少時間？</legend><div class="choices time"><label class="choice"><input type="radio" name="minutes" value="5"><span>5 分鐘</span></label><label class="choice"><input type="radio" name="minutes" value="15" checked><span>15 分鐘</span></label><label class="choice"><input type="radio" name="minutes" value="30"><span>30 分鐘</span></label><label class="choice"><input type="radio" name="minutes" value="60"><span>60 分鐘</span></label></div></fieldset>
+  <fieldset id="budget-field"><legend>最多花多少？<span class="legend-note">新臺幣</span></legend><div class="choices"><label class="choice"><input type="radio" name="budget" value="0" checked><span>0 元</span></label><label class="choice"><input type="radio" name="budget" value="50"><span>50 元</span></label><label class="choice"><input type="radio" name="budget" value="100"><span>100 元</span></label></div></fieldset>
+  <fieldset id="location-field"><legend>想待在哪裡？</legend><div class="choices"><label class="choice"><input type="radio" name="location" value="any" checked><span>不限</span></label><label class="choice"><input type="radio" name="location" value="indoor"><span>室內</span></label><label class="choice"><input type="radio" name="location" value="outdoor"><span>室外</span></label></div></fieldset>
+  </form>
+  <div class="candidate-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>找到 <strong id="candidate-count">0</strong> 個符合條件的冒險</span></div>
+  <button type="button" id="draw-button" class="btn btn-primary draw-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 8h.01M16 16h.01M12 12h.01" stroke-width="3" stroke-linecap="round"/></svg><span id="draw-label">抽一個冒險</span><span aria-hidden="true">→</span></button>
+  <p class="small-note">花費只是預估，實際價格以現場為準。</p>
+  <p id="lock-note" class="lock-note" hidden></p>
+</section>
+<section id="quest-card" class="panel quest-panel" aria-label="冒險任務卡片">
+  <div class="quest-topline"><span class="quest-mark">02 / 你的冒險卡片</span><span id="status-pill" class="status-pill">等待出發</span></div>
+  <div id="empty-quest" class="empty-quest"><svg class="compass" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="52" fill="#eaf0df"/><circle cx="60" cy="60" r="38" fill="#fffef9" stroke="#a9bea0" stroke-width="1.5"/><path d="M60 26v5M60 89v5M26 60h5M89 60h5" stroke="#779370" stroke-width="2"/><path d="m78 41-11 26-26 11 11-26Z" fill="#174c3c"/><path d="m60 60 18-19-11 26Z" fill="#e99b57"/><circle cx="60" cy="60" r="4" fill="#fffef9"/><path d="m96 14 2 6 6 2-6 2-2 6-2-6-6-2 6-2Z" fill="#e99b57"/></svg><h2 id="empty-title">下一個小驚喜，等你抽出來。</h2><p id="empty-description">選好條件，按下「抽一個冒險」。<br>從熟悉的校園裡，發現一點不一樣。</p><span class="hint-tag" id="empty-tag">不用走遠，也能有新發現</span></div>
+  <div id="quest-result" class="quest-result" hidden><div id="task-category" class="category"></div><h2 id="task-title" class="quest-title"></h2><p id="task-description" class="quest-description"></p><div class="metadata"><span class="meta-chip">◷ <span id="task-minutes"></span></span><span class="meta-chip">＄<span id="task-cost"></span></span><span class="meta-chip">⌂ <span id="task-location"></span></span></div><div class="result-actions"><button type="button" id="change-button" class="btn btn-secondary">↻ 換一個</button><button type="button" id="accept-button" class="btn btn-primary">接受任務 <span aria-hidden="true">→</span></button></div><p id="result-note" class="card-foot">先看看任務；接受後再開始計時。</p></div>
+  <div id="active-panel" class="active-panel" hidden><div id="active-category" class="category"></div><h2 id="active-title" class="quest-title"></h2><p id="active-description" class="quest-description"></p><div class="metadata"><span class="meta-chip" id="active-minutes"></span><span class="meta-chip" id="active-cost"></span><span class="meta-chip" id="active-location"></span></div><div class="timer-area"><div class="timer-caption">冒險剩餘時間</div><div id="timer" class="timer" aria-label="剩餘時間">00:00</div><p id="timer-note" class="timer-note"></p><div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div></div><div class="timer-actions"><button type="button" id="timer-button" class="btn btn-primary">開始倒數</button><button type="button" id="complete-button" class="btn btn-orange">提前完成</button></div><button type="button" id="cancel-button" class="cancel-link">取消這次任務</button></div>
+</section>
+</div>
+<section id="history-section" class="panel history-section" aria-labelledby="history-title"><div class="history-heading"><div class="history-title"><h2 id="history-title">冒險紀錄</h2><span class="count-badge">累計 <strong id="completed-count">0</strong> 次</span></div><button type="button" id="clear-button" class="text-btn" disabled>清除完成紀錄</button></div><div id="history-empty" class="history-empty"><div class="history-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#174c3c" stroke-width="1.6" aria-hidden="true"><path d="M5 4h14v17l-7-4-7 4Z"/><path d="m9 10 2 2 4-4"/></svg></div><div><strong>你的第一段冒險，從這裡開始。</strong><p>手動確認完成任務後，就會留下紀錄。小小一步，也值得收藏。</p></div></div><ul id="history-list" class="history-list"></ul><button type="button" id="show-history-button" class="text-btn" hidden>查看全部紀錄</button></section>
+</main>
+<footer class="site-footer"><p>紀錄只儲存在目前瀏覽器，不會跨裝置同步。本機檔案與 GitHub Pages 的紀錄不保證共用。<br>請選擇開放、安全的空間；依現場狀況使用替代做法，並預留回到下一堂課的時間。</p><span class="footer-tag">每一次空堂，都有可能。</span></footer>
+</div>
+<div id="live-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+<div id="toast" class="toast" hidden></div>
+<dialog id="confirm-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="dialog-actions"><button type="button" id="dialog-back" class="btn btn-secondary" autofocus>返回</button><button type="button" id="dialog-confirm" class="btn btn-primary">確認</button></div></dialog>
+<script id="app-code">
+'use strict';
+const TASKS = [
+['cq01','一句話複習','挑今天學到的一個觀念，用自己的話寫成一句話，再補上一個生活中的例子。',5,0,'indoor','學習'],
+['cq02','桌面微整理','收好桌上三件不需要的物品，擦拭自己的桌面，留出一個可以安心寫字的角落。',5,0,'indoor','整理'],
+['cq03','窗邊觀察家','在可安全停留的室內窗邊，找出三種形狀，畫在紙上或用文字記下；不要拍攝他人。',5,0,'indoor','觀察'],
+['cq04','五分鐘塗鴉','用三個幾何圖形設計一隻虛構的校園吉祥物，替牠取一個名字。紙筆或手機備忘錄皆可。',5,0,'indoor','創意'],
+['cq05','背包減法','整理自己的背包，把垃圾帶到合適垃圾桶，將下一堂課要用的物品放到容易拿的位置。',5,0,'indoor','整理'],
+['cq06','坐姿伸展','在自己的座位輕鬆活動手腕、肩膀與腳踝，慢慢呼吸。只做舒適範圍內的動作，不適就停止。',5,0,'indoor','活動'],
+['cq07','天空色票','在安全的室外停留處，觀察天空與周圍顏色，記下三個色彩名稱；不用抬頭直視太陽。',5,0,'outdoor','觀察'],
+['cq08','葉片偵探','從步道上觀察兩種植物的葉形，記下差異；不摘取、不離開開放步道。沒有植物就比較地面紋理。',5,0,'outdoor','觀察'],
+['cq09','換一條小路','沿熟悉且開放的平坦步道短走一段，找一個平常忽略的轉角，再依原路返回。',5,0,'outdoor','活動'],
+['cq10','聲音地圖','在安全停留的位置安靜聽一分鐘，用文字記下三種環境聲音與方向；不錄音、不記錄他人對話。',5,0,'outdoor','觀察'],
+['cq11','建築線條','從開放步道觀察一棟建築，找出水平、垂直與斜線各一條，畫一張極簡草圖。',5,0,'outdoor','創意'],
+['cq12','戶外放鬆站','在平坦、無車流的位置停一下，輕柔活動手腕與肩膀並深呼吸；不適就停止。可坐著完成。',5,0,'outdoor','活動'],
+['cq13','圖書館尋寶','在開放圖書館找一本平常不會看的書，讀完簡介並記下一句心得。若無法使用圖書館，改讀自己帶的課本中不熟悉的一節。',15,0,'indoor','學習'],
+['cq14','記憶小測驗','把筆記暫時闔起來，寫出今天課程的三個關鍵字，再打開筆記檢查並補上一個遺漏的重點。',15,0,'indoor','學習'],
+['cq15','收件匣整理','整理自己的訊息或郵件，標記三件待辦並關閉不需要的分頁；只處理自己的資料，不必分享畫面。',15,0,'indoor','整理'],
+['cq16','下一週的我','列出這週想完成的三件小事，替每件事寫下能在五分鐘內開始的第一步。',15,0,'indoor','整理'],
+['cq17','物品新用途','選一件自己的日常物品，想像五種新用途，其中一種越有趣越好；只寫想法，不必真的試做。',15,0,'indoor','創意'],
+['cq18','無聲四格漫畫','畫一篇沒有對白的四格漫畫，主角是今天的自己。只用簡單線條也可以。',15,0,'indoor','創意'],
+['cq19','筆記變地圖','選一頁自己的筆記，把標題與關鍵字整理成一張小型心智圖，最後圈出最想再問的一個問題。',15,0,'indoor','學習'],
+['cq20','補水休息站','在室內可休息的位置，用自己帶的飲水慢慢補水，離開螢幕，寫下身體現在的三種感覺。沒有水可先休息。',15,0,'indoor','活動'],
+['cq21','校園紋理採集','沿開放步道找三種建材紋理，用文字或速寫記錄差異；不碰觸陌生物、不拍攝個人資訊。',15,0,'outdoor','觀察'],
+['cq22','慢走一個圈','在安全、開放的平坦區域選一段短路線，舒適地慢走並返回；不必追求步數，行動不便時可原地觀察路線。',15,0,'outdoor','活動'],
+['cq23','光影速寫','在可安全停留的地方，找一片建築或植物的影子，畫出輪廓。不直視太陽、不進入車道。',15,0,'outdoor','創意'],
+['cq24','路標觀察筆記','沿開放步道觀察指示牌，寫出一個容易理解的地方與一項改善建議；不摘錄姓名、電話等個人資訊。',15,0,'outdoor','觀察'],
+['cq25','校園小詩','在安全的休息處，以眼前的景物為主角，寫一首四行小詩，每行都放進一個感官詞。',15,0,'outdoor','創意'],
+['cq26','遠近切換','在開放、平坦的停留處，交替觀察近處與遠處景物，記下各三個細節；不直視太陽或凝視他人。',15,0,'outdoor','觀察'],
+['cq27','讀一節新世界','在室內讀自己帶的書或課本的一小節，寫下三個重點、一個疑問與一句心得。',30,0,'indoor','學習'],
+['cq28','資料夾大掃除','整理自己裝置中的一個課程資料夾，統一檔名並把檔案分類；只刪除確認不需要且可復原的自己的資料。',30,0,'indoor','整理'],
+['cq29','教給未來的自己','選一個熟悉的知識點，寫一份五步驟的教學便條，再用例子檢查每一步是否清楚。',30,0,'indoor','學習'],
+['cq30','設計一張校園海報','用紙筆或已有的繪圖工具，設計一張虛構社團活動海報，包含標題、時間與一句介紹；不用張貼或公開。',30,0,'indoor','創意'],
+['cq31','安靜路線地圖','從開放步道選一段熟悉路線，慢走觀察休息點，畫成自己的簡單地圖。遇到封閉區域就折返。',30,0,'outdoor','觀察'],
+['cq32','一景三種畫法','在安全的戶外休息處，選一處景物，分別用線條、幾何圖形與文字描述它。',30,0,'outdoor','創意'],
+['cq33','二十分鐘專注','在安靜室內挑一個小學習目標，專注處理約二十分鐘，剩餘時間檢查成果並安排下一步。',30,0,'indoor','學習'],
+['cq34','單元探索筆記','選自己課本中一個陌生單元，閱讀、做一頁摘要，並列出三個後續想研究的問題；中途可以休息。',60,0,'indoor','學習'],
+['cq35','完整的小作品','在室內用手邊材料，完成一張卡片、一篇短文或一幅插畫，最後寫一句你最喜歡的地方。',60,0,'indoor','創意'],
+['cq36','散步觀察手帳','沿開放且熟悉的平坦路線慢走，中間留時間休息，用文字記下五個新發現；可縮短步行並坐著整理。',60,0,'outdoor','活動'],
+['cq37','小點心觀察','在校內開放商店選一份預估 30 元內的小點心，閱讀包裝上的成分資訊並寫下心得。先確認實價；沒有合適商品就改觀察自己帶的點心，不必消費。',15,30,'indoor','觀察'],
+['cq38','飲品休息筆記','在開放商店挑一杯預估 50 元內的飲品，找室內座位休息並寫下今日一件小確幸。先確認實價；無合適商品或座位就用自帶水在可休息處完成。',30,50,'indoor','創意'],
+['cq39','戶外點心小歇','選一份預估 50 元內的點心，帶到允許飲食且安全的戶外休息處，慢慢品嚐並寫三個形容詞。先確認價格；無合適條件就用自帶點心或觀察景物，不留垃圾。',30,50,'outdoor','觀察'],
+['cq40','午間補給計畫','在開放餐飲區挑一份預估 100 元內的簡餐，先確認實價，坐下用餐並排一下下午待辦。若沒有符合預算的選項，可吃自帶餐點或只整理待辦。',60,100,'indoor','整理']
+].map(([id,name,description,minutes,cost,location,category])=>({id,name,description,minutes,cost,location,category}));
+const DEFAULTS = {minutes:15,budget:0,location:'any'};
+function candidates(preferences,tasks=TASKS){return tasks.filter(t=>t.minutes<=preferences.minutes&&t.cost<=preferences.budget&&(preferences.location==='any'||t.location===preferences.location));}
+function pickTask(pool,currentId,random=Math.random){const choices=pool.length>1?pool.filter(t=>t.id!==currentId):pool;return choices.length?choices[Math.min(choices.length-1,Math.floor(random()*choices.length))]:null;}
+const STORAGE_KEY='campus-quest:v1';
+function freshState(){return {version:1,preferences:{...DEFAULTS},active:null,history:[]};}
+function taskById(id){return TASKS.find(t=>t.id===id);}
+function remaining(active,now=Date.now()){if(!active)return 0;const duration=(taskById(active.taskId)?.minutes||0)*60000;return Math.max(0,Math.min(duration,active.status==='running'?active.deadline-now:active.remainingMs));}
+function transitionActive(active,event,now=Date.now()){
+  if(!active)return null;
+  const left=remaining(active,now);
+  if(event==='start'&&(active.status==='ready'||active.status==='paused'))return {...active,status:left?'running':'expired',remainingMs:left,deadline:left?now+left:null};
+  if(event==='pause'&&active.status==='running')return {...active,status:left?'paused':'expired',remainingMs:left,deadline:null};
+  if(event==='tick'&&active.status==='running'&&!left)return {...active,status:'expired',remainingMs:0,deadline:null};
+  return active;
+}
+function validId(value){return typeof value==='string'&&value.length>0&&value.length<=160;}
+function validTimestamp(value){return Number.isFinite(value)&&value>0&&value<=8640000000000000;}
+function sanitizeState(raw,now=Date.now()){
+  const state=freshState();let repaired=false;
+  if(!raw||typeof raw!=='object'||Array.isArray(raw)||raw.version!==1)return {state,repaired:true};
+  const p=raw.preferences||{};
+  for(const [key,allowed] of Object.entries({minutes:[5,15,30,60],budget:[0,50,100],location:['any','indoor','outdoor']})){
+    if(allowed.includes(p[key]))state.preferences[key]=p[key];else repaired=true;
+  }
+  if(raw.active!=null){
+    const a=raw.active,t=taskById(a.taskId),duration=(t?.minutes||0)*60000;
+    if(t&&validId(a.sessionId)&&['ready','running','paused','expired'].includes(a.status)&&validTimestamp(a.acceptedAt)&&Number.isFinite(a.remainingMs)&&a.remainingMs>=0&&a.remainingMs<=duration&&(a.status!=='running'||(validTimestamp(a.deadline)&&a.deadline<=now+duration))){
+      state.active={sessionId:a.sessionId,taskId:t.id,status:a.status,remainingMs:a.status==='ready'?duration:a.status==='expired'?0:a.remainingMs,deadline:a.status==='running'?a.deadline:null,acceptedAt:a.acceptedAt};
+      state.active=transitionActive(state.active,'tick',now);
+      if(state.active.status==='paused'&&!state.active.remainingMs)state.active.status='expired';
+    }else repaired=true;
+  }else if(raw.active!==null)repaired=true;
+  const seen=new Set();
+  if(Array.isArray(raw.history))for(const r of raw.history){
+    const t=r&&taskById(r.taskId);
+    if(!t||!validId(r.id)||!validTimestamp(r.completedAt)||seen.has(r.id)){repaired=true;continue;}
+    seen.add(r.id);
+    // 使用任務庫的可信文字補齊快照；儲存內容從不作為 HTML 插入。
+    state.history.push({id:r.id,taskId:t.id,name:t.name,description:t.description,minutes:t.minutes,cost:t.cost,location:t.location,category:t.category,completedAt:r.completedAt});
+    if(['name','description','minutes','cost','location','category'].some(key=>r[key]!==t[key]))repaired=true;
+  }else repaired=true;
+  state.history.sort((a,b)=>b.completedAt-a.completedAt);
+  return {state,repaired};
+}
+function completionRecord(active,now=Date.now()){const t=taskById(active.taskId);return {id:'done-'+active.sessionId,taskId:t.id,name:t.name,description:t.description,minutes:t.minutes,cost:t.cost,location:t.location,category:t.category,completedAt:now};}
+// UI：第二階段完整互動
+const $=id=>document.getElementById(id);
+let state=freshState(),selected=null,drawing=false,showAllHistory=false,storageAvailable=true,toastTimer,confirmAction=null,confirmTrigger=null,idCounter=0;
+function announce(message){$('live-status').textContent=message;}
+function toast(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').hidden=false;announce(message);toastTimer=setTimeout(()=>{$('toast').hidden=true;},4200);}
+function storageNotice(message){$('storage-notice').textContent=message;$('storage-notice').hidden=false;}
+function persist(){if(!storageAvailable)return;try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch{storageAvailable=false;storageNotice('瀏覽器目前無法儲存資料，仍可繼續操作；重新整理或關閉後，這次的偏好與紀錄可能無法保留。');}}
+function load(){try{const text=localStorage.getItem(STORAGE_KEY);if(text!==null){const result=sanitizeState(JSON.parse(text));state=result.state;if(result.repaired)storageNotice('部分儲存資料無法讀取，已重設無效欄位並保留有效紀錄。可以繼續開始新的冒險。');}}catch(error){state=freshState();if(error instanceof SyntaxError)storageNotice('儲存資料格式損毀，已恢復預設條件。可以繼續冒險，舊資料可能無法復原。');else{storageAvailable=false;storageNotice('瀏覽器目前無法存取儲存空間，仍可繼續操作；重新整理或關閉後，紀錄可能無法保留。');}}persist();}
+function newId(){return globalThis.crypto?.randomUUID?.()||Date.now().toString(36)+'-'+(++idCounter)+'-'+Math.random().toString(36).slice(2);}
+function syncInputs(){for(const input of document.querySelectorAll('#filter-form input'))input.checked=String(state.preferences[input.name])===input.value;}
+function placeName(location){return location==='indoor'?'室內':'室外';}
+function costText(cost){return cost?'約 '+cost+' 元':'免費';}
+function fillTask(prefix,t){$(prefix+'category').textContent=t.category+' / 小任務';$(prefix+'title').textContent=t.name;$(prefix+'description').textContent=t.description;$(prefix+'minutes').textContent=t.minutes+' 分鐘';$(prefix+'cost').textContent=costText(t.cost);$(prefix+'location').textContent=placeName(t.location);}
+function renderCard(){
+  const pool=candidates(state.preferences),active=state.active,locked=!!active||drawing;
+  $('candidate-count').textContent=pool.length;
+  $('draw-button').disabled=locked||!pool.length;
+  for(const field of document.querySelectorAll('#filter-form fieldset'))field.disabled=locked;
+  $('lock-note').hidden=!locked;
+  $('lock-note').textContent=active?'已有一個任務待完成。完成或取消後，就能調整條件與抽選。':'正在抽卡，請稍候再調整條件。';
+  $('quest-card').classList.toggle('is-drawing',drawing);
+  $('draw-label').textContent=drawing?'正在抽出驚喜…':active?'冒險已接受':'抽一個冒險';
+  $('quest-result').hidden=!selected||drawing||!!active;
+  $('empty-quest').hidden=!!active||!!selected&&!drawing;
+  $('active-panel').hidden=!active;
+  const statuses={ready:'待開始',running:'進行中',paused:'已暫停',expired:'時間到了'};
+  $('status-pill').textContent=active?statuses[active.status]:drawing?'抽選中':selected?'等待接受':!pool.length?'沒有符合結果':'等待出發';
+  $('status-pill').classList.toggle('running',active?.status==='running'||active?.status==='expired');
+  $('empty-title').textContent=drawing?'正在為你抽出小冒險…':!pool.length?'換個條件，再出發。':'下一個小驚喜，等你抽出來。';
+  $('empty-description').textContent=!pool.length?'目前沒有符合條件的任務，試著增加時間、預算，或選擇不限地點':'選好條件，按下「抽一個冒險」。從熟悉的校園裡，發現一點不一樣。';
+  $('empty-tag').textContent=drawing?'一點好奇，一張新卡片':!pool.length?'只有符合全部條件，才會出現在卡片上':'不用走遠，也能有新發現';
+  $('change-button').disabled=drawing||pool.length<2||!!active;
+  $('accept-button').disabled=drawing||!selected||!!active;
+  if(selected){fillTask('task-',selected);$('result-note').textContent=pool.length===1?'目前只有這個符合條件的任務，可以接受或調整條件。':'先看看任務；接受後再開始計時。';}
+  if(active){fillTask('active-',taskById(active.taskId));$('timer-button').hidden=active.status==='expired';$('timer-button').textContent={ready:'開始倒數',running:'暫停',paused:'繼續',expired:'時間到了'}[active.status];$('complete-button').textContent=active.status==='expired'?'確認完成':'提前完成';renderTimer();}
+}
+function renderTimer(){const a=state.active;if(!a)return;const seconds=Math.ceil(remaining(a)/1000);$('timer').textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0');$('timer-note').textContent={ready:'準備好了嗎？按「開始倒數」再出發。',running:'按照自己的步調，留意回到課堂的時間。',paused:'暫停一下，準備好再繼續。',expired:'時間到了！完成冒險了嗎？'}[a.status];const duration=taskById(a.taskId).minutes*60000;$('progress-bar').style.width=(Math.max(0,Math.min(1,1-remaining(a)/duration))*100)+'%';}
+function renderHistory(){const history=state.history;$('completed-count').textContent=history.length;$('clear-button').disabled=!history.length;$('history-empty').hidden=!!history.length;$('history-list').replaceChildren();const display=showAllHistory?history:history.slice(0,10);for(const r of display){const li=document.createElement('li');li.className='history-item';const info=document.createElement('div'),name=document.createElement('strong'),meta=document.createElement('div'),time=document.createElement('time');name.textContent=r.name;meta.className='history-meta';meta.textContent=r.category+' · '+r.minutes+' 分鐘 · '+costText(r.cost)+' · '+placeName(r.location);time.dateTime=new Date(r.completedAt).toISOString();time.textContent=new Date(r.completedAt).toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});info.append(name,meta);li.append(info,time);$('history-list').append(li);}$('show-history-button').hidden=history.length<=10;$('show-history-button').textContent=showAllHistory?'收起，顯示最近 10 筆':'查看全部 '+history.length+' 筆紀錄';}
+function render(){renderCard();renderHistory();}
+async function draw(){if(drawing||state.active)return;const pool=candidates(state.preferences);if(!pool.length){selected=null;renderCard();announce('目前沒有符合條件的任務，試著增加時間、預算，或選擇不限地點');return;}drawing=true;renderCard();announce('正在抽出任務');await new Promise(resolve=>setTimeout(resolve,800));selected=pickTask(pool,selected?.id);drawing=false;renderCard();announce('抽到 '+selected.name+'，'+selected.minutes+' 分鐘、'+costText(selected.cost)+'、'+placeName(selected.location)+'。');$('accept-button').focus({preventScroll:true});if(matchMedia('(max-width:760px)').matches)$('quest-card').scrollIntoView({block:'start',behavior:'auto'});}
+function accept(){if(!selected||drawing||state.active)return;if(!candidates(state.preferences).some(t=>t.id===selected.id)){selected=null;renderCard();toast('條件已改變，請重新抽選。');return;}state.active={sessionId:newId(),taskId:selected.id,status:'ready',remainingMs:selected.minutes*60000,deadline:null,acceptedAt:Date.now()};selected=null;persist();renderCard();announce('已接受任務，按開始倒數出發。');$('timer-button').focus({preventScroll:true});}
+function tick(){if(!state.active)return;const next=transitionActive(state.active,'tick');if(next!==state.active){state.active=next;persist();renderCard();announce('時間到了！完成冒險了嗎？請手動確認完成。');}else renderTimer();}
+function timerAction(){if(!state.active)return;state.active=transitionActive(state.active,state.active.status==='running'?'pause':'start');persist();renderCard();announce(state.active.status==='paused'?'倒數已暫停':state.active.status==='expired'?'時間到了！完成冒險了嗎？':'倒數已開始');}
+function requestConfirm(kind){if($('confirm-dialog').open||confirmAction)return;if(kind!=='clear'&&!state.active)return;if(kind==='clear'&&!state.history.length)return;
+  const sessionId=state.active?.sessionId;
+  const copy={complete:['完成這次冒險？','確認你已完成任務後，會新增一筆冒險紀錄。倒數結束本身不代表完成。','確認完成'],cancel:['取消這次任務？','這次任務與倒數會結束，不會增加完成次數。完成紀錄會保留。','確認取消'],clear:['清除全部完成紀錄？','這個動作會清除所有完成紀錄，無法復原；目前接受的任務與倒數不受影響。','確認清除']}[kind];
+  $('dialog-title').textContent=copy[0];$('dialog-description').textContent=copy[1];$('dialog-confirm').textContent=copy[2];confirmAction={kind,sessionId};confirmTrigger=document.activeElement;$('confirm-dialog').showModal();$('dialog-back').focus();
+}
+function closeConfirm(){confirmAction=null;$('confirm-dialog').close();if(confirmTrigger?.isConnected&&!confirmTrigger.disabled&&!confirmTrigger.hidden)confirmTrigger.focus({preventScroll:true});}
+function confirm(){const action=confirmAction;if(!action)return;confirmAction=null;$('confirm-dialog').close();if(action.kind==='clear'){state.history=[];showAllHistory=false;persist();renderHistory();toast('完成紀錄已清除，目前任務保持不變。');$('history-title').setAttribute('tabindex','-1');$('history-title').focus({preventScroll:true});return;}
+  if(!state.active||state.active.sessionId!==action.sessionId)return;
+  if(action.kind==='complete'){const record=completionRecord(state.active);if(!state.history.some(r=>r.id===record.id))state.history.unshift(record);state.history.sort((a,b)=>b.completedAt-a.completedAt);}
+  state.active=null;selected=null;persist();render();toast(action.kind==='complete'?'冒險完成！又收藏了一個小小的新發現。':'任務已取消，準備好再抽一個。');$('draw-button').focus({preventScroll:true});
+}
+$('filter-form').addEventListener('submit',e=>e.preventDefault());
+$('filter-form').addEventListener('change',()=>{if(drawing||state.active){syncInputs();return;}const data=new FormData($('filter-form'));state.preferences={minutes:Number(data.get('minutes')),budget:Number(data.get('budget')),location:data.get('location')};selected=null;persist();renderCard();announce('條件已更新，有 '+candidates(state.preferences).length+' 個任務符合條件。');});
+$('draw-button').addEventListener('click',draw);$('change-button').addEventListener('click',draw);$('accept-button').addEventListener('click',accept);$('timer-button').addEventListener('click',timerAction);$('complete-button').addEventListener('click',()=>requestConfirm('complete'));$('cancel-button').addEventListener('click',()=>requestConfirm('cancel'));$('clear-button').addEventListener('click',()=>requestConfirm('clear'));$('dialog-back').addEventListener('click',closeConfirm);$('dialog-confirm').addEventListener('click',confirm);$('confirm-dialog').addEventListener('cancel',()=>{confirmAction=null;});$('confirm-dialog').addEventListener('close',()=>{confirmAction=null;});$('show-history-button').addEventListener('click',()=>{showAllHistory=!showAllHistory;renderHistory();});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick();});window.addEventListener('pageshow',tick);
+load();syncInputs();render();setInterval(tick,250);
+</script>
+</body>
+</html>
